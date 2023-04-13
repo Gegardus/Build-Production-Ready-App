@@ -1,0 +1,23 @@
+Create a production build and deploy your site to the cloud
+
+- So there is one step that we want to do before we can actually deploy our app to the Cloud, and this is to create a production build. We want to create a production build because we want to actually deploy and serve an optimized production build of our React single page application. So let's do that by running, I'm going to show you which, how we're going to do that. It's going to be with this line of command, "build." We're going to run "npm run build," and it's going to automatically create a new directory, and inside we're going to find the compressed and optimized version of our React single page application. It has also an entry point, so it's going to show at some points like right here. And also you see that this is everything is compressed and optimized, and same also, if you need a 404, that's it. And we need to do another thing because now we want to make sure that we deploy and serve from this directory. So, in the configuration file you're going to change this hosting and right here you're going to change to "build." Here we go, we're going to change to "build." And now we are ready to run "npx firebase deploy" which is the final, and step three, remember, remember that this is the final in step three, to deploy to the Cloud. We see that this is going through, and once this is done we're going to have one link to the Projects Console and also one link directing to the CDN where we can actually see our site online. So let's first checkout, have another view in the Console. We're going to find the section. Here you can see that you have successfully deployed your app. You can see the date and time when it was deployed. Let's go to this section "Hosting." You're going to see the different deployment. So this is the current one. I had originally deployed the app one time, so now you can see that once again at this time. Okay. And you can actually find this one under this link. So let's go back. You're going to see that this is the same that you have right here. So let's use this hosting URL, and now we're going to be able to run our app. I am already authenticated, so you can do that. You can always logout or then authenticate again. So let's try that. We're going to use our app. I'm going to upload and then add a new image to the gallery. Let's use this one, Graffiti. Save and upload. And this is not working and that's because let's check out somewhere like Storage. You've got rules. Remember that we are, we also specify some rules and they must be similar right here. So it looks like this is indicated as false. I'm going to say, I'm going to put the same rules as we have defined for the Firestore. Let's go back to storage. We're going to change the rules right here. I'm going to publish, and I'm going to go back also to here because that must match also whatever we put here. So that must match. Okay, so let's run again "npm run build." That's going to be one final step and that should be fine after that. So let's just make sure like always that you've got the right rules. Of course, you want to make sure that you secure the access to every services. So Firestore, but also the Storage and final step will be to then deploy once again. So that's going to create a new deployment. If we go back to the Console, you're going to be able to see that we're going to get another time, another deployment. So we're going to check when this is up and running and try again. It should be this one. Okay, let's try again. So we're going to upload the same image, which is Graffiti. Save and upload. Here we go. And we're going to find it right here. Excellent. We can actually go there, go back we can even search for this new image and then go back. Excellent. So we have successfully created, developed, and deployed a full stack serverless React single page application with the Cloud hosted services of Firebase.
+
+npm run build
+
+"hosting": {
+    "public": "build"
+...................
+}
+
+npx firebase deploy
+
+Project Console: https://console.firebase.google.com/project/firestock-41818/overview
+Hosting URL: https://firestock-41818.web.app
+
+In Rules at Firestock and in apps file storage.rules
+  allow read: if true; 
+  allow write: if request.auth != null; 
+Publish  
+
+npm run build
+npx firebase deploy
