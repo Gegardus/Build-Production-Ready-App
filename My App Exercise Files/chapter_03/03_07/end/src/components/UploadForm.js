@@ -49,4 +49,5 @@ const UploadForm = ({inputs, isVisible, onChange, onSubmit }) => {
       </>
     );
   };
+  
 export default UploadForm;  

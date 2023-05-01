@@ -1,0 +1,70 @@
+https://medium.com/@akashjha9041/the-most-common-react-design-patterns-f6d8a77aad78
+
+npx create-react-app photo-gallery
+
+https://getbootstrap.com/docs/5.2/getting-started/download/:
+
+CDN via jsDelivr 
+link => head; script => body
+
+VSC View => Word Wrap
+
+Layout => Grid 
+<div class="container text-center"></div>
+
+Bootstrap => Components => Navbar
+
+Bootstrap => Components => Card => Images
+
+Components partition
+
+Create photos array and pass it as props to Card component instead of stubby array
+
+   { {Array.apply(null, {length: 9}).map((_, index) => <Card key={index} />)} }
+          {photos.map((photo, index) => <Card key={index} src={photo}/>)}
+
+Separate <Navigation />, <SearchForm /> and <Dropdown /> in different components
+
+Manipulate photos in App with hooks inside component, on the top level. 
+
+        {photos.map((photo, index) => <Card key={index} src={photo}/>)}
+        {items.map((photo, index) => <Card key={index} src={photo}/>)}
+
+Buuton '+Add' activates setItems function from useState. 
+Button 'collapse' is used for toggle.      
+
+Add UploadForm which will be visible/unvisible through props, so instead of two buttons
+is used one button with toggle and terinary operator
+
+Add hook for setInput to manipulate with onChange and onSubmit states wich are passed to
+uploadForm as props, to upload file 
+
+Core:
+
+03_05 Add functionality for images uploading. In form we handle separatly fields for title and for path.
+Also we set images count with useEffect.
+
+03_06 add Preview component in UploadForm using useMemo, disable submit after all, clean input after submit in App:
+
+  setInputs({ title: null, file: null, path: null})
+    collapse(false)
+
+and collapse form.
+
+03_07 add useReducer
+
+03_08 put busyness logic to reducer
+
+03_09 relocate Navbar to Layout component, differentiating presentation and logic, an rewrite props in Card
+
+04_01 create in src context object which should globaly pass data down components tree: const Context = createContext()
+
+04_02 create Provider in context and wrap <App /> in root component in Provider then  move 
+      any state management from App and handle state management from one location in context,
+      which includes useReducer, reducer and initialState
+
+04_03 manage global state with useContext hook in App
+
+04_04 manage globaly all data, to allow all components to subscribe to context changes: Layout
+      make updates in uploadForm using "state" from Context (state.inputs; state.isVisible)      
+

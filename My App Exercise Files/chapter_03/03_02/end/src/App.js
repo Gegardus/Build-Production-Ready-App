@@ -16,7 +16,7 @@ function App() {
   const [items, setItems] = useState(photos);
   const [isCollapsed, collapse] = useState(false);
   const toggle = () => {
-    collapse(!isCollapsed);
+collapse(!isCollapsed);
   }
   return (
     <>

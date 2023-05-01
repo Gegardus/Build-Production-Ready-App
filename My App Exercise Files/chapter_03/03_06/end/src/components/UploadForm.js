@@ -18,6 +18,7 @@ const UploadForm = ({inputs, isVisible, onChange, onSubmit }) => {
     const isDisabled = useMemo(() => {
       return !!Object.values(inputs).some(input => !input)
     }, [inputs])
+    
     return (
       isVisible && <>
       <p className="display-6 text-center mb-3">Upload Stock Image</p>
@@ -49,4 +50,5 @@ const UploadForm = ({inputs, isVisible, onChange, onSubmit }) => {
       </>
     );
   };
+
 export default UploadForm;  

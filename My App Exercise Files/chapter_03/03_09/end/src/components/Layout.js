@@ -18,4 +18,5 @@ function Layout({ children, state, onChange, onSubmit, toggle }) {
       </>)
 }
 
-export default Layout
+export default Layout;
+

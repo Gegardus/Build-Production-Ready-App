@@ -18,7 +18,6 @@ const handleOnChange = (state, e) => {
   } else {
     return {...state.inputs, title: e.target.value}
   }
-
 }
 
 function reducer(state, action) {
@@ -76,7 +75,7 @@ function App() {
         </div>
       </div>
     </>
-  );
- 
+  ); 
 }
+
 export default App;

@@ -19,9 +19,9 @@ function App() {
       setInputs({ ...inputs, file: e.target.files[0], path: URL.createObjectURL(e.target.files[0])})
     } else {
       setInputs({...inputs, title: e.target.value})
-    }
-   
+    }   
   }
+
   const handleOnSubmit = (e) => {
     e.preventDefault()
     setItems([inputs.path,...items])
@@ -30,6 +30,7 @@ function App() {
   useEffect(() => {
     setCount(`you have ${items.length} image${items.length > 1 ? 's': ''}`)
   }, [items])
+
   return (
     <>
       <Navbar />
